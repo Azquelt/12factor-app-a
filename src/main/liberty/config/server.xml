@@ -11,6 +11,6 @@
   <!-- Automatically expand WAR files and EAR files -->
   <applicationManager autoExpand="true"/>
 
-  <webApplication name="12factor-app-a" location="${app.location}"/>
+  <webApplication name="12factor-app-a" location="${app.location}" contextRoot="/" />
 
 </server>

@@ -1,10 +1,12 @@
 package application.rest;
-import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-import javax.ws.rs.GET;
-@RegisterRestClient
-public interface ServiceBClient{
 
-    @GET
-    String hello() throws Exception;
-    
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+public interface ServiceBClient {
+	
+	@Path("/demo/b")
+	@GET
+	public String getServiceBResponse();
+
 }
