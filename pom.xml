@@ -41,30 +41,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-client</artifactId>
-            <version>3.1.11</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.json</artifactId>
-            <version>1.0.4</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>8.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
             <version>2.0.1</version>
@@ -84,27 +60,6 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-            <!-- For downloading files -->
-            <!--plugin>
-                <groupId>com.googlecode.maven-download-plugin</groupId>
-                <artifactId>download-maven-plugin</artifactId>
-                <version>${version.download-maven-plugin}</version>
-                <executions>
-                    <execution>
-                        <id>install-tracer</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>wget</goal>
-                        </goals>
-                        <configuration>
-                            <url>https://repo1.maven.org/maven2/net/wasdev/wlp/tracer/liberty-opentracing-zipkintracer/1.0/liberty-opentracing-zipkintracer-1.0-sample.zip</url>
-                            <unpack>true</unpack>
-                            <outputDirectory>${project.build.directory}/liberty/wlp/usr</outputDirectory>
-                            
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin-->
 
             <!-- Plugin to run unit tests -->
             <plugin>
@@ -263,6 +218,7 @@
                             </execution>
                         </executions>
                         <configuration>
+                            <dockerfile.build.pullNewerImage>false</dockerfile.build.pullNewerImage>
                             <dockerfile.verbose>true</dockerfile.verbose>
                             <repository>openliberty-${project.artifactId}</repository>
                             <tag>${project.version}</tag>
